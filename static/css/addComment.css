@@ -1,0 +1,35 @@
+.form-control{
+              margin-left: auto;
+              margin-right: auto;
+          }
+
+.body{
+     background-image: url('../static/images/home1.jpg');
+
+}
+
+.addcomm
+{
+    width:100%;
+    height:80px;
+    background-color:darkcyan;;
+    margin-bottom: 0px;
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.myBtn
+{
+    background-color: teal;
+    color:#fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    border:3px solid teal;
+    border-radius: 5px;
+}
+
+.commform{
+    padding: 20px;
+}
+

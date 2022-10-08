@@ -1,0 +1,209 @@
+body{
+    background : linear-gradient(to right, #d2d7d8a4 ,white,#dde0e0a4 );
+}
+thead{color:teal}
+    table{border:10px solid teal;
+        size:100px;
+        font-family: Verdana;
+    background-color: teal;
+    }
+#label1{
+    font-size:30px;
+    text-align: center;
+    font-family: Verdana;
+    color:white;
+    width: 958px;
+    height:60px;
+    background-color: #111;
+    font-weight: bold;
+}
+#label2{
+    width: 900px;
+    background-color: #264b5d;
+    height: 4px;
+}
+#label3{
+    color:teal;
+    font-size: 30px;
+}
+
+#qId{
+    background-color: black;
+    font-style: italic;
+    font-size: 20px;
+    color:white;
+    text-align: center;
+    width: 600px;
+    height: 40px;
+    margin-bottom:10px;
+}
+
+
+.Showqs
+{
+    width:100%;
+    height:95px;
+    background-color:darkcyan;
+    margin-bottom: 0px;
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.startdiv{
+    text-align: center;
+}
+.mycard1{
+  width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+    height: 550px;
+    margin-top: 15px;
+    background-color: #fff;
+}
+
+.myta1{
+     color: #9C1A1C;
+    font-size: 20px;
+    font-weight: bold
+}
+
+.inp1{
+    color: #9C1A1C;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #fff;
+    border: none;
+}
+.carding{
+    color: #9C1A1C;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #fff;
+    border-bottom: none;
+}
+.maindivclass{
+    text-align: center;
+}
+.c1{
+    color: #9C1A1C;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: #fff;
+    border: none;
+    display: inline-block;
+}
+
+#commentshow{
+    margin-top: 0px;
+        margin-bottom: 0px;
+
+    font-weight: bold;
+}
+#btn1{
+    font-weight: bold;
+    background-color: teal;
+    color: #fff;
+}
+#btn:hover{
+    font-weight: bold;
+    background-color: teal;
+    color: #fff;
+}
+#commentshow{
+    font-weight: bold;
+    background-color: teal;
+    color: #fff;
+}
+#commentshow:hover{
+    font-weight: bold;
+    background-color: teal;
+    color: #fff;
+}
+#delQues{
+
+    font-weight: bold;
+    color: #fff;
+    background-color: firebrick;
+}
+#delQues:hover{
+
+    font-weight: bold;
+    color: #fff;
+    background-color: firebrick;
+}
+
+.deleteButton{
+    float: right;
+}
+.allbtn{
+    float: left;
+}
+
+
+.mycard1{
+  width: 60rem;
+    margin-left: auto;
+    margin-right: auto;
+    height: 600px;
+    margin-top: 15px;
+    background-color: #fff;
+}
+
+.myta1{
+     color: #9C1A1C;
+    font-size: 20px;
+    background-color:lightgrey;
+    outline-color: teal;
+    font-weight: bold
+
+}
+
+.inp1{
+    color: #9C1A1C;
+    font-size: 20px;
+    background-color:lightgrey;
+    font-weight: bold;
+}
+
+.commentshow{
+    margin-top: 0px;
+        margin-bottom: 0px;
+    margin-left: 100px;
+    font-weight: bold;
+    border: 3px solid teal;
+        background-color: cadetblue;
+
+}
+.card{
+ border: 3px solid teal;
+}
+.mycomm{
+    background-color: cadetblue;
+    color: white;
+    font-weight: bold;
+}
+.myText{
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    color: black;
+    font-family: Verdana;
+    padding: 15px;
+
+}
+
+#closeBtn{
+    font-weight: bold;
+    background-color: teal;
+}
+
+#commBtn{
+     font-weight: bold;
+    background-color: teal;
+}
+
+
+.modal-title{
+    color: teal;
+}

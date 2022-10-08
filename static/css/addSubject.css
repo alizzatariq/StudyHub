@@ -1,0 +1,120 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background : linear-gradient(to right, #d2d7d8a4 ,white,#dde0e0a4 );
+}
+h1{
+    text-align: center;
+}
+thead{
+    color: #fff;
+}
+.addSubjectdiv{
+    border-radius: 10px;
+}
+table{
+    border:5px solid teal;
+    border-radius: 7px;
+    width:200px;
+    height:40px;
+    color: white;
+    background-color: #29465B;
+}
+th{
+    font-size: 50px;
+}
+tr{
+    height:350px
+}
+.c1{
+    margin-left: 60px;
+    margin-right: 60px;
+}
+button{
+    background-color: teal;
+    color:white;
+    margin-left: 65px;
+    margin-right: auto;
+
+  border: none;
+    border-radius: 7px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    font-weight: bold;
+  font-size: 16px;
+    font-family: verdana;
+}
+input[type=text]{
+    width: 700px;
+    border:3px solid teal;
+}
+
+
+
+/*navbar*/
+.navbar-custom{
+    background-color:#111;
+    color: #fff;
+    font-family: verdana;
+    padding: 5px;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #fff;
+    font-family: verdana;
+}
+.navbar-nav > .active > a{
+    background-color: #111;
+    color:teal;
+}
+.navbar .navbar-nav .nav-link:hover{
+    background-color: #111 !important;
+    color: teal !important;
+}
+.navbar .navbar-nav li a:focus{
+    background-color: teal !important;
+    border-radius: 7px;
+    color: #fff !important;
+}
+
+nav .navbar-nav li a{
+    color: #fff;
+}
+nav a:hover{
+    background-color: #111;
+    color: #fff;
+}
+.dropdown-menu{
+    background-color: #111;
+    color: #fff;
+}
+.dropdown-menu li a:hover{
+    background-color: #111;
+    color: teal;
+}
+.buttondiv{
+    float: right;
+}
+.logoutbutton{
+    background-color: teal;
+    color: #fff;
+    font-family: verdana;
+    float: right;
+    font-weight: bold;
+}
+
+
+.footer{
+    width: 100vw;
+    height: 0rem;
+    margin-top:auto;
+}
+.footer-bottom-text{
+    text-align: center;
+    background: #000;
+    line-height: 40px;
+    margin-top:auto;
+}

@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .form-control{
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+    </style>
+    <title>Notes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    {#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">#}
+    <script src="../static/js/textEditBtn.js"></script>
+    <link rel="stylesheet" href="../static/css/notes.css">
+    <link href="../static/css/navbar.css" rel="stylesheet">
+</head>
+<body>
+
+
+<header>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-text navbar-custom">
+        <div class="container-fluid">
+            {#        <a class="navbar-brand" href="#">Navbar</a>#}
+            <h3>STUDYHUB</h3>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        {#            <li class="nav-item active">#}
+                        <a class="nav-link" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Subject
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/addSubject">Add Subject</a></li>
+                            <li><a class="dropdown-item" href="/deleteSubject">Delete Subject</a></li>
+                            <li><a class="dropdown-item" href="/showSubject">Show Subject</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Notes
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/notes">Add Notes</a></li>
+                            <li><a class="dropdown-item" href="/showNotes">Show my Notes</a></li>
+                            <li><a class="dropdown-item" href="/showFavNotes">Show Favourite Notes</a></li>
+                            <li><a class="dropdown-item" href="/showNotesSubjects">Show notes Categories</a></li>
+                            <li><a class="dropdown-item" href="/showAllNotes">Show All Categories</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Question
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/reportQuestion">Report a Question</a></li>
+                            <li><a class="dropdown-item" href="/showQuestions">Show Questions</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/showNotifications">Notification</a>
+                    </li>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Users
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/viewUsers">View all users</a></li>
+                            <li><a class="dropdown-item" href="/showConnections">View Connections</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/showTimer">Pomodoro Timer</a></li>
+                            <li><a class="dropdown-item" href="todolist">To do List</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="butttondiv">
+            <form class="container-fluid">
+
+                <a class="btn btn-sm logoutbutton" href="/logout">LOGOUT</a>
+            </form>
+        </div>
+    </nav>
+</header>
+
+<div class="StudyHubUsersNotes">
+    <h1>NOTES</h1>
+    <p>Your Notes</p>
+</div>
+
+
+
+{% if error==True  %}
+    {% if success1==True  %}
+        <div class="alert alert-success alert-dismissible fade show">
+            <strong>ALERT!</strong> {{ str1 }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    {% endif %}
+
+    {% if danger1==True  %}
+        <div class="alert alert-danger alert-dismissible fade show">
+            <strong>ALERT!</strong> {{ str1 }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    {% endif %}
+
+    {% if warn1==True  %}
+        <div class="alert alert-warning alert-dismissible fade show">
+            <strong>ALERT!</strong> {{ str1 }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    {% endif %}
+
+
+{% endif %}
+
+<form action="/uploadfile" method="POST">
+
+    <div class="row mb-5">
+        <div class="col-lg-2"></div>
+         <div class="col-lg-5">
+           <img  src="../static/images/addnotes.jpg">
+        </div>
+        <div class="col-lg-3" style="margin-top: 20%">
+            <button type="submit" class="btn mb-3 btn-md btnSubmit" id="btn">UPLOAD FILE</button>
+        </div>
+
+        <div class="col-lg-2"></div>
+
+        <br>
+    </div>
+</form>
+
+<form action="/notes_"  method="post">
+    <div class="row">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-4 mb-10">
+            <label for="exampleFormControlInput1" class="form-label notesTitle"><b>Notes Title</b></label>
+            <input type="text" class="form-control" id="title1" name="title1" placeholder="Enter note's title">
+        </div>
+
+
+        <div class="col-lg-4 mb-10">
+
+                <label for="exampleFormControlInput2" class="form-label notesTitle"><b>Subject</b></label>
+                <input type="text" class="form-control" id="subject1" name="subject1" placeholder="Enter Subject Name">
+
+        </div>
+
+        <div class="col-lg-2"></div>
+    </div>
+
+    <br>
+    <div class="row">
+
+        <br>
+        {% if fileNotes1 == True %}
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 mb-10">
+
+                    <div class="mb-10">
+                        <label for="exampleFormControlTextarea1" class="form-label notesTitle"><b>File Uploaded</b></label>
+                        <input type="text" class="form-control" id="fileNotes" name="fileNotes"  value="{{fileNotes}}" readonly="readonly">
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+            </div>
+        {% else %}
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 mb-10">
+
+                    <div class="mb-10">
+                        <label for="exampleFormControlTextarea1" class="form-label notesTitle"><b>File Uploaded</b></label>
+                        <input type="text" class="form-control" id="fileNotes" name="fileNotes" placeholder="UPLOAD FILE" readonly="readonly">
+                    </div>
+                    <div class="col-lg-2"></div>
+                </div>
+            </div>
+        {% endif %}
+
+
+        <br><br>
+
+        <br><br>
+        <div class="row">
+            <div class="col-lg-2"></div>
+            <div class="col-lg-8 mb-10">
+
+                <div class="mb-10">
+                    <label for="exampleFormControlTextarea1" class="form-label notesTitle"><b>Content</b></label>
+                    <textarea class="form-control mb-3" style="width: 100%;
+    border:3px solid teal;" id="content1" name="content1" rows="5" ></textarea>
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+
+        <div class="row allbuttons">
+            <div class="col-lg-2"></div>
+
+            <div class="col-lg-1">
+                <div class="mb-3">
+                    <a class="btn mb-3 btn1" onclick="coptText()">Copy Text</a>
+                </div>
+            </div>
+
+            <div class="col-lg-1">
+                <div class="mb-3">
+                    <a class="btn mb-3 btn1" onclick="removeExtraSpaces()">Remove Space</a>
+                </div>
+            </div>
+
+
+            <div class="col-lg-1">
+                <div class="mb-3">
+                    <a class="btn mb-3 btn1" onclick="upperCase()">Upper Case</a>
+                </div>
+            </div>
+
+            <div class="col-lg-1">
+                <div class="mb-3">
+                    <a class="btn mb-3 btn1" onclick="lowerCase()">Lower Case</a>
+                </div>
+            </div>
+
+            <div class="col-lg-1">
+                <div class="mb-3">
+                    <a class="btn mb-3 btn1" onclick="clearAll()">Clear Text</a>
+                </div>
+            </div>
+
+            <div class="col-lg-1">
+                <div class="mb-3">
+                    <a class="btn mb-3 btn1" onclick="titleCase()">Title Case</a>
+                </div>
+            </div>
+
+            <div class="col-lg-1">
+                <div class="mb-3">
+                    <a class="btn mb-3 btn1" onclick="toggleCase()">Toggle Text</a>
+                </div>
+            </div>
+
+            <div class="col-lg-2"></div>
+        </div>
+    </div>
+
+
+
+    <div class="row">
+        <div class="col-lg-9"></div>
+        <div class="col-md-1 mb-10">
+            <button type="submit" class="btn mb-3 btn-md btnSubmit" id="btn">Upload</button>
+            <div class="col-lg-2"></div>
+        </div>
+
+    </div>
+
+</form>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+
+<footer class="footer">
+    <p class="footer-bottom-text">All rights reserved by &copy;StudyHub.2022</p>
+</footer>
+{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>#}
+</body>
+
+{#<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>#}
+{#<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>#}
+
+<script>
+    $(document).ready(function(){
+        $("#myBtn").click(function(){
+            $("#myAlert").alert("close");
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,78 @@
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+img
+{
+      border-radius: 50%;
+     border: black solid 3px;
+     border-color: black;
+}
+
+card-body
+{
+    margin-left: 20px;
+}
+.inner
+{
+    display: inline-block;
+}
+
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+  }
+
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }
+
+table{
+    margin-left: 3rem;
+    margin-right: 3rem;
+}
+
+td{
+    width: 400px;
+    font-weight: bold;
+}
+
+.myform1{
+    width:100%;
+}
+
+.StudyHubUsers
+{
+    width:100%;
+    height:80px;
+    background-color:darkcyan;;
+    margin-bottom: 0px;
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.mybtn1{
+    background-color: teal;
+    font-family: Verdana;
+    color: white;
+    font-weight: bold;
+    border: 5px solid teal;
+    border-radius: 7px;
+}
+
+.card-header{
+    background-color: teal;
+}
+
+#userId1{
+    border-radius: 5px;
+    font-weight: bold;
+    color: black;
+    text-align: center;
+}

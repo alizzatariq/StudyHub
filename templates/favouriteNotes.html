@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <style>
+          .form-control{
+              margin-left: auto;
+              margin-right: auto;
+          }
+
+      </style>
+    <title>ADD FAVOURITE NOTES</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+  </head>
+  <body>
+
+
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/home">HOME PAGE</a>
+    </div>
+  </nav>
+
+
+
+      {% if error==True  %}
+            {% if success1==True  %}
+                <div class="alert alert-success alert-dismissible fade show">
+                <strong>ALERT!</strong> {{ str1 }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+
+            {% if danger1==True  %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                <strong>ALERT!</strong> {{ str1 }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+
+            {% if warn1==True  %}
+                <div class="alert alert-warning alert-dismissible fade show">
+                <strong>ALERT!</strong> {{ str1 }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+
+
+        {% endif %}
+
+
+<form action="/favouriteNotes_"  method="post">
+
+<br><br><br>
+  <div class="mb-10">
+      <label for="exampleFormControlInput1" class="form-label"><b>NOTES ID</b></label>
+    <input type="text" class="form-control" id="favId" name="favId" placeholder="Enter Id of Notes which you want to add in
+        favourities" style="width: 1320px;">
+        </div>
+
+
+<br>
+  <div class="mb-3">
+
+    <button type="submit" class="btn btn-primary mb-3 btn-lg">ADD NOTES TO FAVOURITES</button>
+  </div>
+
+</form>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+  </body>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myAlert").alert("close");
+    });
+});
+</script>
+
+</html>

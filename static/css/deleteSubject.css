@@ -1,0 +1,52 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background : linear-gradient(to right, #d2d7d8a4 ,white,#dde0e0a4 );
+
+}
+h1{
+    text-align: center;
+}
+thead{
+    color: #fff;
+}
+table{
+    border:5px solid teal;
+    width:200px;
+    height:40px;
+    color: white;
+    background-color: #29465B;
+}
+th{
+    font-size: 50px;
+}
+tr{
+    height:350px
+}
+.c1{
+    margin-left: 60px;
+    margin-right: 60px;
+}
+#btn1{
+    background-color: red;
+    color:white;
+    margin-left: 65px;
+    margin-right: auto;
+
+  border: none;
+    border-radius: 7px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    font-weight: bold;
+  font-size: 16px;
+    font-family: verdana;
+}
+input[type=text]{
+    width: 700px;
+    border:3px solid teal;
+}
+
+

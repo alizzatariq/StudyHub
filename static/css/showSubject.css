@@ -1,0 +1,183 @@
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: verdana;
+        background : linear-gradient(to right, #d2d7d8a4 ,white,#dde0e0a4 );
+
+}
+/*body {*/
+/*  !*background-image: url("../static/addSubject.png");*!*/
+/*  !*background-repeat: no-repeat;*!*/
+/*  !*background-position: center;*!*/
+/*    font-family: verdana;*/
+/*  !*float: bottom;*!*/
+/*}*/
+
+h1{
+    text-align: center;
+    font-family:verdana;
+}
+thead{
+    color:white;
+    background-color: #29465B;
+    border:3px solid lightgray;
+    text-align: center;
+    height:5px;
+    font-family: verdena;
+    width: 10px;
+}
+.table{
+    margin-left: 30px;
+    margin-right: 40px;
+
+    border:3px solid red;
+
+    width:90%;
+    height:4px;
+
+    text-align: center;
+    font-family: verdena;
+    color: #fff !important;
+    margin-bottom: 100px;
+    margin-top: 50px;
+
+    /*background-color: lightgray;*/
+}
+th{
+    font-size: 20px;
+    color: #fff !important;
+    font-weight: bold;
+    background-color: #29465B !important;
+    font-family: verdana;
+}
+th:hover {
+    font-size: 20px;
+    color: #fff !important;
+    font-weight: bold;
+    background-color: #29465B !important;
+    font-family: verdana;
+}
+tr{
+    height:70px;
+    font-family: verdana;
+    font-weight: bold;
+  border:3px solid lightgray;
+}
+tr:hover {
+    background-color: teal;
+    color: white;
+}
+
+.c1{
+    margin-left: 60px;
+    margin-right: 60px;
+    font-family: verdana;
+    width: 10px;
+}
+.button{
+    background-color: teal;
+    color:white;
+    margin-left: 65px;
+    margin-right: auto;
+
+    border-radius: 20px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+    font-weight: bold;
+  font-size: 10px;
+    font-family: verdana;
+    border-color: teal;
+    box-shadow: 5px 10px #888888;
+}
+input[type=text]{
+    width: 700px;
+    border:3px solid teal;
+    font-family: verdena;
+}
+
+
+
+/*navbar*/
+.navbar-custom{
+    background-color:#111;
+    color: #fff;
+    font-family: verdana;
+    padding: 5px;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #fff;
+    font-family: verdana;
+}
+.navbar-nav > .active > a{
+    background-color: #111;
+    color:teal;
+}
+.navbar .navbar-nav .nav-link:hover{
+    background-color: #111 !important;
+    color: teal !important;
+}
+.navbar .navbar-nav li a:focus{
+    background-color: teal !important;
+    border-radius: 7px;
+    color: #fff !important;
+}
+
+nav .navbar-nav li a{
+    color: #fff;
+}
+nav a:hover{
+    background-color: #111;
+    color: #fff;
+}
+.dropdown-menu{
+    background-color: #111;
+    color: #fff;
+}
+.dropdown-menu li a:hover{
+    background-color: #111;
+    color: teal;
+}
+.buttondiv{
+    float: right;
+}
+.logoutbutton{
+    background-color: teal;
+    color: #fff;
+    font-family: verdana;
+    float: right;
+    font-weight: bold;
+}
+
+
+.footer{
+    width: 100vw;
+    height: 0rem;
+    margin-top:auto;
+}
+.footer-bottom-text{
+    text-align: center;
+    background: #000;
+    line-height: 40px;
+    margin-top:auto;
+}
+
+tbody{
+    color:#111;
+    background-color: #fff;
+    border:3px solid teal;
+    text-align: center;
+    font-family: verdena;
+}
+.css-serial {
+    counter-reset: serial-number; /* Set the serial number counter to 0 */
+}
+
+    .css-serial td:first-child:before {
+        counter-increment: serial-number; /* Increment the serial number counter */
+        content: counter(serial-number); /* Display the counter */
+    }

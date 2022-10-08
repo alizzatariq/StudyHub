@@ -1,0 +1,78 @@
+.navbar-custom{
+    background-color:#111;
+    color: #fff;
+    font-family: verdana;
+    padding: 5px;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #fff;
+    font-family: verdana;
+}
+.navbar-nav > .active > a{
+    background-color: #111;
+    color:teal;
+}
+.navbar .navbar-nav .nav-link:hover{
+    background-color: #111 !important;
+    color: teal !important;
+}
+.navbar .navbar-nav li a:focus{
+    background-color: teal !important;
+    border-radius: 7px;
+    color: #fff !important;
+}
+
+nav .navbar-nav li a{
+    color: #fff;
+}
+nav a:hover{
+    background-color: #111;
+    color: #fff;
+}
+.dropdown-menu{
+    background-color: #111;
+    color: #fff;
+}
+.dropdown-menu li a:hover{
+    background-color: #111;
+    color: teal;
+}
+.buttondiv{
+    float: right;
+}
+
+.logoutbutton{
+    background-color: teal;
+    color: #fff !important;
+    font-family: verdana;
+    float: right;
+    font-weight: bold;
+}
+
+.logoutbutton:hover{
+    background-color: teal;
+    color: #fff !important;
+    font-family: verdana;
+    float: right;
+    font-weight: bold;
+}
+
+
+.footer{
+    width: 100vw;
+    height: 0rem;
+    margin-top:auto;
+}
+.footer-bottom-text{
+    text-align: center;
+    background: #000;
+    line-height: 40px;
+    margin-top:auto;
+
+    color: lightgrey;
+}
+
+.custom-toggler.navbar-toggler {
+            border-color: lightgreen;
+        }

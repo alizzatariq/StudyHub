@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Notes by Category</title>
+{#    <link href="../static/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">#}
+{#    <link href="../static/css/shownotescategories.css" rel="stylesheet">#}
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/shownotescategories.css">
+    <link href="../static/css/navbar.css" rel="stylesheet">
+
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-text navbar-custom">
+      <div class="container-fluid">
+{#        <a class="navbar-brand" href="#">Navbar</a>#}
+          <h3>STUDYHUB</h3>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              {#            <li class="nav-item active">#}
+              <a class="nav-link" aria-current="page" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Subject
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/addSubject">Add Subject</a></li>
+                <li><a class="dropdown-item" href="/deleteSubject">Delete Subject</a></li>
+                <li><a class="dropdown-item" href="/showSubject">Show Subject</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Notes
+              </a>
+               <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/notes">Add Notes</a></li>
+                <li><a class="dropdown-item" href="/showNotes">Show my Notes</a></li>
+                <li><a class="dropdown-item" href="/showFavNotes">Show Favourite Notes</a></li>
+                   <li><a class="dropdown-item" href="/showNotesSubjects">Show notes Categories</a></li>
+                <li><a class="dropdown-item" href="/showAllNotes">Show All Categories</a></li>
+
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button"
+                 data-bs-toggle="dropdown" aria-expanded="false">
+                Question
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/reportQuestion">Report a Question</a></li>
+                <li><a class="dropdown-item" href="/showQuestions">Show Questions</a></li>
+              </ul>
+                </li>
+              <li class="nav-item">
+              <a class="nav-link" href="/showNotifications">Notification</a>
+            </li>
+            </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Users
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/viewUsers">View all users</a></li>
+                <li><a class="dropdown-item" href="/showConnections">View Connections</a></li>
+              </ul>
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  More
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/showTimer">Pomodoro Timer</a></li>
+                  <li><a class="dropdown-item" href="todolist">To do List</a></li>
+              </ul>
+              </li>
+          </ul>
+        </div>
+      </div>
+       <div class="butttondiv">
+        <form class="container-fluid">
+            <a class="btn btn-sm logoutbutton" href="/logout">LOGOUT</a>
+        </form>
+       </div>
+    </nav>
+</header>
+
+<div class="StudyHubUsersCategories">
+        <h1>Show Notes by Categories</h1>
+    <p>Select notes by selecting through notes categories</p>
+    </div>
+
+<div class="row mydiv1">
+    <div class="col-lg-3 mb-4"></div>
+
+    <div class="col-lg-6 mb-4 upperdiv">
+
+</ul>
+
+    <form class="form-signin" method="POST" action="/showSpecificCategory">
+      <ul class="list-group mb-5">
+        <li class="mylist1 list-group-item" aria-current="true">Search Notes</li>
+          <li class="mylist list-group-item ">
+            <div class="row">
+                <div class="col-lg-13">
+                    <label for="subName" id="labelforcategory">Choose Subject Category:</label>
+                    <div class="wrapper">
+                        <select class="form-control" id="subName"  name="subName" onfocus="this.size=3;" onblur='this.size=1;' onchange='this.size=1; this.blur();'>
+                            {% for sub in data %}
+                                <option value="{{ sub }}">{{ sub }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="col-lg-3 btndiv">
+                    <br>
+                    <button class="btn btn-lg mybtn1" type=submit name ="viewCategory"
+                        value="View" id="viewSub">View</button><br>
+                </div>
+            </div>
+          </li>
+        </ul>
+    </form>
+    </div>
+    <div class="col-lg-3 mb-4"></div>
+</div>
+
+<div class="row">
+  <div class="col-lg-3 mb-4"></div>
+    <div class="col-lg-6 mb-4">
+        <table class="table  table-striped table-hover mytable">
+            <thead>
+                <tr>
+                    <th scope="col">Notes Category</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for sub in data %}
+                <tr>
+                  <td>{{ sub }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+    </div>
+  </div>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+
+<footer class="footer">
+   <p class="footer-bottom-text">All rights reserved by &copy;StudyHub.2022</p>
+    </footer>
+</body>
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myAlert").alert("close");
+    });
+});
+</script>
+</html>

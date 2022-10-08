@@ -1,0 +1,79 @@
+.body{
+      background: linear-gradient(to right, #b7bfc0a4 ,white,#b7bfc0a4 );
+}
+.StudyHubUsersNotes{
+    width:100%;
+    height:95px;
+    background-color:darkcyan;
+    margin-bottom: 0px;
+    text-align: center;
+    color: white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+.notesTitle{
+    font-weight:bold;
+    font-family: Verdana;
+    font-size: 15px;
+    color: #111;
+}
+input[type=text]{
+    width: 100%;
+    border:3px solid teal;
+}
+input[type='file']{
+    color: #fff;
+    background-color:#494848;
+    font-weight: bold;
+    font-family: Verdana;
+    font-size: 15px;
+    border: 5px solid teal;
+    border-radius: 7px;
+}
+.btn1{
+    color: #fff;
+    background-color:#494848;
+    font-weight: bold;
+    font-family: Verdana;
+    font-size: 15px;
+    border: 5px solid teal;
+    border-radius: 7px;
+}
+.btn1:hover{
+    color: #fff;
+    background-color:#494848;
+    font-weight: bold;
+    font-family: Verdana;
+    font-size: 15px;
+    border: 5px solid teal;
+    border-radius: 7px;
+}
+.allbuttons{
+    margin-left: 60px;
+}
+#customFile{
+    border: 7px solid teal;
+    color: #fff;
+    background-color: teal;
+    font-family: Verdana;
+    font-size: 15px;
+    font-weight: bold;
+}
+.btnSubmit{
+    color: #fff;
+    background-color:teal;
+    font-weight: bold;
+    font-family: Verdana;
+    font-size: 15px;
+    border: 5px solid teal;
+    border-radius: 7px;
+}
+.btnSubmit:hover{
+    color: #fff;
+    background-color:teal;
+    font-weight: bold;
+    font-family: Verdana;
+    font-size: 15px;
+    border: 5px solid teal;
+    border-radius: 7px;
+}

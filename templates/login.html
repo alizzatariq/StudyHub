@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap" rel="stylesheet">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+
+
+      {#    <link href="signin.css" rel="stylesheet">#}
+
+      <link href="./static/css/login.css" rel="stylesheet">
+    <link href="./static/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- Custom styles for this template -->
+
+
+      <script src="./static/js/signup.js"></script>
+      <link href="./static/css/navbar.css" rel="stylesheet">
+
+</head>
+  <body>
+  <header>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-text navbar-custom">
+      <div class="container-fluid">
+{#        <a class="navbar-brand" href="#">Navbar</a>#}
+          <h3>StudyHub  </h3>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#">Support</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+
+
+
+    <main class="form-contact w-50 m-auto">
+
+        {% if error==True  %}
+            {% if success1==True  %}
+                <div class="alert alert-success alert-dismissible fade show">
+                <strong>ALERT!</strong> {{ str1 }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+
+            {% if danger1==True  %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                <strong>ALERT!</strong> {{ str1 }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+
+            {% if warn1==True  %}
+                <div class="alert alert-warning alert-dismissible fade show">
+                <strong>ALERT!</strong> {{ str1 }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+        {% endif %}
+
+    <br><br><br><br>
+
+        <form class="myform form-signin" action="/login" method="post">
+
+            <div class="text-center heading">
+          <img class="mb-4 mt-4" src="./static/images/icon1.png" alt="" width="72" height="57">
+          <h1>LOGIN</h1>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+        <div class="col-lg-8 mb-4">
+          <div class="form-group">
+              <label class="label1" for="email1">Email</label><span style="color:#ff0000">*</span>
+            <input type="email" class="form-control form-control-lg" id="email1" name="email"
+                   placeholder="username@gmail.com" onchange="checkEmail(this)">
+                 <span id="em" class="error" style="color:#ff0000; font-size:small; font-weight:lighter;"></span>
+
+          </div>
+        </div>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8 mb-4 ml-4">
+                    <div class="form-group center">
+                        <label class="label1"  for="password">Password</label><span style="color:#ff0000">*</span>
+                        <input type="password" class="form-control form-control-lg ml-4" name="pwd" id="password"
+                           placeholder="Password" onchange="checkPwd(this)">
+                        <span id="pwdErr" class="error" style="color:#ff0000; font-size:small; font-weight:lighter;"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="row d-flex justify-content-center">
+                <div class="checkbox mb-3 text-center">
+                    <label>
+                        <input type="checkbox" value="remember-me"> Remember me
+                    </label>
+                </div>
+            </div>
+            <div class="text-center">
+                <button class="w-50 btn btn-lg btn-primary my-10" type="submit" id="btn1">Login</button>
+                <div class="container text-center my-3">
+                    Don't have an account?<a href="/signup" >SignUp</a>
+                </div>
+            </div>
+        </form>
+      </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+<br><br>
+    <footer>
+        <hr>
+        <center class="footer-bottom-text">Copyright&#169; My web</center>
+    </footer>
+
+</body>
+
+<script>
+$(document).ready(function(){
+    $("#myBtn").click(function(){
+        $("#myAlert").alert("close");
+    });
+});
+</script>
+</html>

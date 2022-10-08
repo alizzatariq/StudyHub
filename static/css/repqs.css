@@ -1,0 +1,150 @@
+body {
+      background-color: rgb(248, 244, 244) !important;
+     background-image: url("../static/images/q2.jpg");
+  background-repeat: no-repeat;
+  background-position: right center;
+    background-attachment: fixed;
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar-custom{
+    background-color:#111;
+    color: #fff;
+    font-family: verdana;
+    padding: 5px;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #fff;
+    font-family: verdana;
+}
+.navbar-nav > .active > a{
+    background-color: #111;
+    color:teal;
+}
+.navbar .navbar-nav .nav-link:hover{
+    background-color: #111 !important;
+    color: teal !important;
+}
+.navbar .navbar-nav li a:focus{
+    background-color: teal !important;
+    border-radius: 7px;
+    color: #fff !important;
+}
+
+nav .navbar-nav li a{
+    color: #fff;
+}
+nav a:hover{
+    background-color: #111;
+    color: #fff;
+}
+.dropdown-menu{
+    background-color: #111;
+    color: #fff;
+}
+.dropdown-menu li a:hover{
+    background-color: #111;
+    color: teal;
+}
+.buttondiv{
+    float: right;
+}
+.logoutbutton{
+    background-color: teal;
+    color: #fff;
+    font-family: verdana;
+    float: right;
+    font-weight: bold;
+}
+
+
+.footer{
+    width: 100vw;
+    height: 0rem;
+    margin-top:auto;
+}
+.footer-bottom-text{
+    text-align: center;
+    background: #000;
+    line-height: 40px;
+    margin-top:auto;
+}
+
+
+
+.form-control{
+              margin-left: auto;
+              margin-right: auto;
+}
+.questionTitle{
+    font-family: Verdana;
+    font-weight: bold;
+    font-size: 18px;
+}
+.taskDesc{
+    font-family: Verdana;
+    font-weight: bold;
+    font-size: 18px;
+}
+.taskDescription{
+    font-weight:bold;
+    font-family:verdana;
+}
+#Description{
+    width: 100%;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 3px solid teal;
+  border-radius: 7px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+
+
+form{
+     max-width: 100%;
+     background-color: white;
+ font-family: Verdana;
+     font-size: large;
+     font-weight: bold;
+     color: black;
+     margin: auto;
+     place-items: center !important;
+     border-radius: 15%;
+     box-shadow: 0 0 20px rgb(242, 224, 247);
+ }
+
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 3px solid teal;
+    border-radius: 7px;
+}
+
+#btn{
+    background-color:teal;
+    font-weight:bold;
+    color:white;
+    font-family:verdana;
+}
+#btn1{
+    font-weight:bold;
+    color:white;
+    font-family:verdana;
+    background-color: #494848;
+    border: 3px solid teal;
+    border-radius: 5px;
+}
+
+textarea{
+    border-radius: 5px;
+    border: 3px solid teal;
+}

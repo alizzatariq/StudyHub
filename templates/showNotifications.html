@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Show My Notifications</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+     <link href="../static/css/notf.css" rel="stylesheet">
+    <link href="../static/css/navbar.css" rel="stylesheet">
+
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-text navbar-custom">
+        <div class="container-fluid">
+            {#        <a class="navbar-brand" href="#">Navbar</a>#}
+            <h3>STUDYHUB</h3>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        {#            <li class="nav-item active">#}
+                        <a class="nav-link" aria-current="page" href="/home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/profile">Profile</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Subject
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/addSubject">Add Subject</a></li>
+                            <li><a class="dropdown-item" href="/deleteSubject">Delete Subject</a></li>
+                            <li><a class="dropdown-item" href="/showSubject">Show Subject</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Notes
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/notes">Add Notes</a></li>
+                            <li><a class="dropdown-item" href="/showNotes">Show my Notes</a></li>
+                            <li><a class="dropdown-item" href="/showFavNotes">Show Favourite Notes</a></li>
+                            <li><a class="dropdown-item" href="/showNotesSubjects">Show notes Categories</a></li>
+                            <li><a class="dropdown-item" href="/showAllNotes">Show All Categories</a></li>
+
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
+                            Question
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/reportQuestion">Report a Question</a></li>
+                            <li><a class="dropdown-item" href="/showQuestions">Show Questions</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/showNotifications">Notification</a>
+                    </li>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Users
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/viewUsers">View all users</a></li>
+                            <li><a class="dropdown-item" href="/showConnections">View Connections</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            More
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="/showTimer">Pomodoro Timer</a></li>
+                            <li><a class="dropdown-item" href="todolist">To do List</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="butttondiv">
+            <form class="container-fluid">
+
+                <a class="btn btn-sm logoutbutton" href="/logout">LOGOUT</a>
+            </form>
+        </div>
+    </nav>
+</header>
+
+
+<div class="mynotifications">
+    <h1>NOTIFICATIONS</h1>
+</div>
+<br><br><br><br>
+{% if data != None %}
+    {% for d1 in data %}
+
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+
+                <form class="form-signin" action="/acceptNotification"  method="POST">
+
+                    <div class="card mb-3" style="max-width: 540px;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+
+                                <img src="../static/{{d1[9]}}" class="img-fluid rounded-start" alt="..."
+                                     style="box-sizing: border-box;
+  width:100%;
+  height: 100%;
+
+  border-radius:15%;
+  margin:0;
+  border:5px solid teal;
+  padding:3px;
+  background-color:white;">
+
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">Notification From
+                                        <input type="text" id="notfId" name="notfId"
+                                                                                    value="{{ d1[2] }}"
+                                               readonly="readonly"></h5>
+
+                                    <p class="card-text">{{ d1[4] }} wants to build a connection with you.({{ d1[6] }})</p>
+
+                                    <input type="usertext"  id="userId2" name="userId2"
+                                           value="{{ d1[4] }}" readonly="readonly">
+
+
+                                    <button class="btn btn-md mybtn1" type="submit" id="btn1" style="font-weight: bold">Accept</button>
+                                    <button class="btn btn-danger btn-md" type=submit name ="deleteNotf"
+                                            value="delNotf" id="delNotf"  style="font-weight: bold " formaction="/delNotification">Decline</button>
+
+
+                                    {#          <a href="/AcceptNotification" class="btn btn-primary">Accept</a>#}
+                                    {#          <a href="/DelNotification" class="btn btn-danger">Decline</a>#}
+                                    {#          #}
+
+                                    <p class="card-text" align="right"><small class="text-muted">{{ d1[8] }}</small></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <br><hr><br>
+            </div>
+
+
+            <!-- Modal -->
+            <div class="modal hide fade" id="{{ d1[2] }}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg  modal-dialog-centered modal-dialog-scrollable">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Profile View</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+
+
+
+                            <div class="row">
+                                <div class="col-md-4"></div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <img class="mb-4 mt-4 " src="../static/{{ d1[17] }}" alt="" width="150" height="150">
+                                    </div>
+                                </div>
+                                <div>
+                                    <hr>
+                                    <div class="row">
+
+                                        <div class="col-lg-10">
+                                            <table class="table table-success table-striped">
+                                                <tr>
+                                                    <td><label class="hd1">Name:</label></td>
+                                                    <td><label id="name"></label>{% if d1[3]!=None %} {{ d1[3] }} {% endif %}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><label class="hd1">Email:</label></td>
+                                                    <td><label id="email3"></label>{{ d1[4] }}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><label class="hd1">Date of Birth:</label></td>
+                                                    <td><label id="dob"></label>{% if d1[10]!=None %}{{ d1[10] }}{% endif %}</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><label class="hd1">Bio:</label></td>
+                                                    <td colspan="2"><label id="bio">{% if d1[11]!=None %}{{ d1[11] }}{% endif %}</label></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><label class="hd1">Gender:</label></td>
+                                                    <td><label id="gender">{% if d1[12]!=None %}{{ d1[12] }}{% endif %}</label></td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td><label class="hd1">Institution:</label></td>
+                                                    <td><label id="institution">{% if d1[13]!=None %}{{ d1[13] }}{% endif %}</label></td>
+                                                </tr>
+
+                                            </table>
+                                        </div>
+
+                                    </div>
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+    {% endfor %}
+{%endif %}
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js" integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK" crossorigin="anonymous"></script>
+
+
+<footer class="footer">
+   <p class="footer-bottom-text">All rights reserved by &copy;StudyHub.2022</p>
+    </footer>
+
+</body>
+</html>

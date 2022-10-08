@@ -1,0 +1,149 @@
+body{
+
+    /*background-image: url("../static/images/pomodorowatch2.jpg");
+  background-repeat: no-repeat;
+  background-position: bottom center;
+    background-attachment: fixed;*/
+
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  /*float: left;*/
+}
+.secImage{
+    background-image: url("../static/images/pomodorowatch1.jpg");
+  background-repeat: no-repeat;
+  background-position: left center;
+    background-attachment: fixed;
+  float: left;
+}
+
+h1{
+    font-weight: bold;
+    font-family: verdana;
+    font-size: 50px;
+}
+.outerDiv{
+    align-items: center;
+    margin:auto;
+    justify-content: center;
+    width:500px;
+    height:300px;
+    border-radius:7px;
+    color:white ;
+    background-color: gray;
+    font-size: 25px;
+    font-family:verdana;
+    border: 5px solid white;
+    padding: 30px;
+     box-shadow: 20px 40px teal
+}
+.timer{
+    font-family: verdana;
+    font-weight: bold;
+    font-size: 50px;
+}
+
+.study{
+    width:100px;
+    height:40px;
+    color: #F3F4F6;
+    font-size: 1.125rem;
+    font-family:verdana;
+    font-weight: bold;
+    background-color: teal;
+    margin: 15px;
+    padding: 0.5rem 1rem;
+    transition: 0.4s;
+    float: left;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.break{
+    width:100px;
+    height:40px;
+    color: #F3F4F6;
+    font-size: 1.125rem;
+    font-family:verdana;
+    font-weight: bold;
+    background-color: teal;
+    margin: 15px;
+    padding: 0.5rem 1rem;
+    transition: 0.4s;
+            float: left;
+    border-radius: 7px; display: flex;align-items: center;justify-content: center;
+}
+
+.navbar-custom{
+    background-color:#111;
+    color: #fff;
+    font-family: verdana;
+    padding: 5px;
+}
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+    color: #fff;
+    font-family: verdana;
+}
+.navbar-nav > .active > a{
+    background-color: #111;
+    color:teal;
+}
+.navbar .navbar-nav .nav-link:hover{
+    background-color: #111 !important;
+    color: teal !important;
+}
+.navbar .navbar-nav li a:focus{
+    background-color: teal !important;
+    border-radius: 7px;
+    color: #fff !important;
+}
+
+nav .navbar-nav li a{
+    color: #fff;
+}
+nav a:hover{
+    background-color: #111;
+    color: #fff;
+}
+.dropdown-menu{
+    background-color: #111;
+    color: #fff;
+}
+.dropdown-menu li a:hover{
+    background-color: #111;
+    color: teal;
+}
+.buttondiv{
+    float: right;
+}
+.logoutbutton{
+    background-color: teal;
+    color: #fff;
+    font-family: verdana;
+    float: right;
+    font-weight: bold;
+}
+
+
+.footer{
+    width: 100vw;
+    height: 0rem;
+    margin-top:auto;
+}
+.footer-bottom-text{
+    text-align: center;
+    background: #000;
+    line-height: 40px;
+    margin-top:auto;
+}
+
+.timer{
+    font-family: verdana;
+    font-weight: bold;
+    font-size: 40px;
+}

@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/profile.css">
+
+    <title>Profile</title>
+</head>
+<body>
+
+<header>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-text navbar-custom">
+      <div class="container-fluid">
+{#        <a class="navbar-brand" href="#">Navbar</a>#}
+          <h3>STUDYHUB</h3>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              {#            <li class="nav-item active">#}
+              <a class="nav-link" aria-current="page" href="/home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Subject
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/addSubject">Add Subject</a></li>
+                <li><a class="dropdown-item" href="/deleteSubject">Delete Subject</a></li>
+                <li><a class="dropdown-item" href="/showSubject">Show Subject</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Notes
+              </a>
+               <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/notes">Add Notes</a></li>
+                <li><a class="dropdown-item" href="/showNotes">Show my Notes</a></li>
+                <li><a class="dropdown-item" href="/showFavNotes">Show Favourite Notes</a></li>
+                   <li><a class="dropdown-item" href="/showNotesSubjects">Show notes Categories</a></li>
+                <li><a class="dropdown-item" href="/showAllNotes">Show All Categories</a></li>
+
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button"
+                 data-bs-toggle="dropdown" aria-expanded="false">
+                Question
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/reportQuestion">Report a Question</a></li>
+                <li><a class="dropdown-item" href="/showQuestions">Show Questions</a></li>
+              </ul>
+                </li>
+              <li class="nav-item">
+              <a class="nav-link" href="/showNotifications">Notification</a>
+            </li>
+            </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Users
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/viewUsers">View all users</a></li>
+                <li><a class="dropdown-item" href="/showConnections">View Connections</a></li>
+              </ul>
+              </li>
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  More
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="/showTimer">Pomodoro Timer</a></li>
+                  <li><a class="dropdown-item" href="todolist">To do List</a></li>
+              </ul>
+              </li>
+          </ul>
+        </div>
+      </div>
+       <div class="butttondiv">
+        <form class="container-fluid">
+            <button class="btn btn-sm logoutbutton" type="button">Logout</button>
+            <a class="btn btn-sm" href="/logout">LOGOUT</a>
+        </form>
+       </div>
+    </nav>
+</header>
+
+<div class="myprofile">
+    <h1>MANAGE PROFILE</h1>
+</div>
+<br><br><br>
+
+      {% if error==True  %}
+                {% if success1==True  %}
+                <div class="alert alert-success alert-dismissible fade show">
+                <strong>ALERT!</strong> {{ str1 }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+
+            {% if danger1==True  %}
+                <div class="alert alert-danger alert-dismissible fade show">
+                <strong>ALERT!</strong> {{ str1 }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+
+            {% if warn1==True  %}
+                <div class="alert alert-warning alert-dismissible fade show">
+                <strong>ALERT!</strong> {{ str1 }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                </div>
+            {% endif %}
+        {% endif %}
+
+<center>
+
+<div class="container-fluid my-6">
+
+    <div class="heading">
+
+    </div>
+    <br>
+    <div class="allData">
+    <div class="outerDiv">
+        <div class="innerDiv">
+
+            <form action="/editprofilepic" method="POST">
+                                <div class="container my-6 form-group inline">
+{#                    <img src="../static/picS.jpg" class="img-responsive rounded-circle" >#}
+                    <img src="../static/{{ imageName}}" style="box-sizing: border-box;
+  width:139px;
+  height:139px;
+  border-radius:50%;
+  margin:0;
+  border:5px solid teal;
+  padding:3px;
+  background-color:white;" >
+                    <input style="display:none;" type="file" name="" id="file" accept="image/*">
+                    <br><br>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn mb-2" id="btn1">Set Profile Picture</button>
+                </div>
+            </form>
+            <hr>
+            <form action="/profileManage" method="post">
+
+{#                <div class="mb-3">#}
+{#                    <button type="submit" class="btn mb-2" id="btn1">Set Profile Picture</button>#}
+{#                     <input class="form-control" type="file" id="formFile" name="file">#}
+{#                </div>#}
+{#                <div>#}
+{#                    <input type="file" accept="image/*" name="file" class="form-control" autocomplete="off" required>#}
+{#                </div>#}
+                {#edit pic#}
+                <br><br>
+                {#    first name and last name#}
+                <div class="container text-center mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="exampleFormControlInput2" class="form-label" >First Name</label>
+                            {% if userFirstName ==None or userFirstName =="" %}
+                            <input type="text" class="form-control" id="firstName" name="firstName"
+                                   placeholder="First Name">
+
+                        {% elif userFirstName !=None or userFirstName !=""  %}
+                         <input type="text" class="form-control" id="firstName" name="firstName"
+                                   placeholder="First Name" value={{ userFirstName }}>
+                        {% endif %}
+
+                        </div>
+                        <div class="col">
+                            <label >Last Name</label>
+                             {% if userLastName ==None or userLastName =="" %}
+                            <input type="text" class="form-control" id="lastName" name="lastName"
+                                   placeholder="Last Name">
+
+
+                         {% elif userLastName !=None or userLastName !=""  %}
+                             <input type="text" class="form-control" id="lastName" name="lastName"
+                                   placeholder="Last Name"  value={{ userLastName }}>
+                        {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+                <br>
+                {#Email#}
+                <div class="container text-center mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="exampleFormControlInput1" class="form-label">Email</label>
+                            <input type="email" name="email" class="form-control" id="email"
+                                   value={{userEmail}} id="password" placeholder="name@example.com" required>
+                        </div>
+                        <div class="col">
+                            {#password#}
+                            <label for="inputPassword" class="col-sm-2 col-form-label"> Password</label>
+                            <input type="password" name="password" class="form-control" id="password"
+                                   placeholder="Enter password here" value={{userPassword}} required>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                {#bio#}
+                <div class="container text-center mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label" >Bio</label>
+
+                     {% if userBio ==None or userBio =="" %}
+                  <textarea style="transition: width 0.4s ease-in-out;
+  width: 560px;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid teal;
+  border-radius: 4px;
+  font-size: 15px;" class="form-control" name="bio" id="bioText" rows="3" placeholder="Enter your bio here"
+                             ></textarea>
+
+                     {% elif userBio !=None or userBio !="" %}
+                     <textarea style="transition: width 0.4s ease-in-out;
+  width: 560px;
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid teal;
+  border-radius: 4px;
+  font-size: 15px;" class="form-control" name="bio" id="bioText" rows="3" placeholder="Enter your bio here"
+                             >{{ userBio }}</textarea>
+                  {% endif %}
+
+
+
+                </div>
+                <br>
+                {#date of birth#}
+                <div class="container text-center">
+                    <label for="birthday">Date of Birth</label>
+                    <input type="date" id="dob" name="dob" name="dob" value={{ userdob }} >
+                    <br>
+                </div>
+                <br>
+                {#gender#}
+                <div class="form-check">
+                    {% if gender==None%}
+                    <input type="radio" id="male" name="check" value="male" required>
+                     <label for="male" >Male</label>
+                     <input type="radio" id="female" name="check" value="female" required>
+                     <label for="female" >Female</label>
+                     <input type="radio" id="other" name="check" value="other" required>
+                     <label for="other" >Other</label>
+                    {% endif %}
+
+                   {% if gender!=None%}
+                       {% if gender=="male" %}
+                    <input type="radio" id="male" name="check" value="male" checke="true" required>
+                           {% endif %}
+
+                     <label for="male" >Male</label>
+
+                        {% if gender=="female" %}
+                     <input type="radio" id="female" name="check" value="female"  checked="true" required>
+                            {% endif %}
+                     <label for="female" >Female</label>
+
+                             {% if gender=="other" %}
+                     <input type="radio" id="other" name="check" value="other" checked="true" required>
+                                 {% endif %}
+                     <label for="other" >Other</label>
+                    {% endif %}
+
+
+                </div>
+                <br>
+                {#phone number#}
+                <div class="container text-center mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="phone" class="form-label" >Phone No.</label>
+
+                              {% if userPhoneno==None or userPhoneno=="" %}
+                            <input type="tel" class="form-control" name="phoneNo"
+                                   pattern="[0-9]{3}-[0-9]{5}-[0-9]{3}" id="phoneNo" placeholder="000-00000-000"
+                                  >
+
+                             {% elif userPhoneno!=None or userPhoneno!="" %}
+                             <input type="tel" class="form-control" name="phoneNo"
+                                   pattern="[0-9]{3}-[0-9]{5}-[0-9]{3}" id="phoneNo" placeholder="000-00000-000"
+                                   value={{ userPhoneno }} >
+                             {% endif %}
+
+                            <br>
+                            <small>Format: 123-45678-900</small>
+                        </div>
+                        <div class="col">
+                            {#country#}
+                            <label >Country</label>
+                            {% if userCountry==None or userCountry=="" %}
+                            <input type="text" class="form-control" id="country"
+                                   name="country"  placeholder="Enter your country name"
+                                  >
+
+
+                        {% elif userCountry!=None or userCountry!="" %}
+                          <input type="text" class="form-control" id="country"
+                                   name="country"  placeholder="Enter your country name"
+                                   value={{ userCountry }} >
+                        {% endif %}
+
+
+
+                        </div>
+                    </div>
+                </div>
+                <br>
+                {#university name#}
+                <div class="container text-center mb-3">
+                    <div class="row">
+                        <div class="col">
+                            <label for="exampleFormControlInput2" class="form-label" >Instituition</label>
+
+                             {% if  userUniversity==None or userUniversity=="" %}
+                            <input type="text" class="form-control" id="uniName" name="uniName"
+                                   placeholder="Enter your institution name" >
+
+
+                         {% elif  userUniversity!=None or userUniversity!="" %}
+                            <input type="text" class="form-control" id="uniName" name="uniName"
+                                   placeholder="Enter your institution name" value={{ userUniversity }} >
+                            {% endif %}
+
+
+
+                        </div>
+                        <div class="col">
+                            {#degree#}
+                            <label >Degree</label>
+                               {% if  userDegree ==None or  userDegree =="" %}
+                            <input type="text" class="form-control" id="degree"
+                                   name="degree"  placeholder="Enter your degree name" >
+
+
+                          {% elif  userDegree !=None or  userDegree !="" %}
+                            <input type="text" class="form-control" id="degree"
+                                   name="degree"  placeholder="Enter your degree name" value={{ userDegree }} >
+                            {% endif %}
+
+
+                        </div>
+                    </div>
+                </div>
+                <br>
+
+                <div class="col-auto">
+                    <button type="submit" class="btn mb-2" id="btn1">Submit</button>
+                </div>
+
+            </form>
+{#        </div>#}
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+    <br><br><br>
+
+</center>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="../static/js/profile.js"></script>
+
+      <footer class="footer">
+   <p class="footer-bottom-text">All rights reserved by &copy;StudyHub.2022</p>
+    </footer>
+</body>
+
+{% if error %}
+{{errormsg}}
+{% endif %}
+
+</html>

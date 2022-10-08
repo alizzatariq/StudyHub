@@ -1,0 +1,196 @@
+Create Database studyplanner;
+
+Create Table UserAccount(
+ 
+	user_str varchar(4) default 'usr_',
+	user_no int(5) AUTO_INCREMENT, 
+	user_id varchar( 10 ) default 'USRID', 
+ 
+	user_name varchar(100) not null,
+	user_email varchar(100) not null,
+	user_password varchar(255) not null, 
+	user_acc_type int(1) not null,
+ 
+	date_created date not null DEFAULT CURRENT_DATE,
+ 
+	user_first_name  varchar(100),
+	user_last_name varchar(100),
+	user_dob date,
+	user_bio  varchar(300),
+	user_gender varchar(20),
+	user_institution varchar(100),
+	user_country varchar(100),
+	user_field varchar(100),
+	user_phone_number varchar(100),
+	
+	user_img_path VARCHAR(255) default 'usericon.png',
+
+
+ PRIMARY KEY(user_no,user_id), 
+ CONSTRAINT email_uk UNIQUE (user_email) 
+ 
+ ); 
+ALTER TABLE UserAccount AUTO_INCREMENT=20001;
+
+
+
+Create Table Connections(
+ 
+	conn_str varchar(4) default 'con_',
+	conn_no int(5) AUTO_INCREMENT, 
+	conn_id varchar( 10 ) default 'CONN', 
+	
+	user_no1 int(5),
+	user_id1 varchar( 10 ) default 'USRID', 
+	
+	user_no2 int(5),
+	user_id2 varchar( 10 ) default 'USRID', 
+ 
+
+	PRIMARY KEY(conn_no,conn_id),
+	CONSTRAINT conn_fk1 FOREIGN KEY (user_no1,user_id1) references UserAccount(user_no,user_id),
+	CONSTRAINT conn_fk2 FOREIGN KEY (user_no2,user_id2) references UserAccount(user_no,user_id)
+); 
+ALTER TABLE Connections AUTO_INCREMENT=90001;
+
+
+
+Create Table Notes( 
+
+ notes_str varchar(4) default 'nt_',
+ notes_no int(5) AUTO_INCREMENT,
+ notes_id varchar( 10 ) default 'NOTESID',
+ 
+ user_no int(5),
+ user_id varchar( 10 ) default 'USRID', 
+ 
+ notes_title varchar(100) not null,
+ notes_subject varchar(100) not null,
+ notes_content varchar(1000) not null, 
+ notes_favSt int(1) default 0,
+ notes_publicSt int(1) default 0,
+ nt_date_created date not null DEFAULT CURRENT_DATE,
+ file_uploaded varchar(100);
+
+ PRIMARY KEY(notes_no,notes_id,user_id),
+ CONSTRAINT notes_fk FOREIGN KEY (user_no,user_id) references UserAccount(user_no,user_id)
+
+);
+ALTER TABLE Notes AUTO_INCREMENT=40001;
+
+
+
+Create Table Scheduler(	
+	sch_str varchar(4) default 'sch_',
+	sch_no int(5) AUTO_INCREMENT,
+	sch_id varchar( 10 ) default 'SCHD',
+
+	user_no int(5),
+	user_id varchar( 10 ) default 'USRID',
+ 
+	subj_name varchar(20) not null,
+	sch_topic varchar(100) not null,
+	num_hours varchar(4) not null,
+	
+	start_date date not null DEFAULT CURRENT_DATE,
+	end_date date not null DEFAULT CURRENT_DATE,
+	
+	PRIMARY KEY(sch_no,sch_id,user_id),
+	CONSTRAINT scheduler_fk FOREIGN KEY (user_no,user_id) references UserAccount(user_no,user_id)
+);
+ALTER TABLE Scheduler AUTO_INCREMENT=50001;
+
+
+
+Create Table Subject(
+
+	sub_str varchar(4) default 'sub_',
+	sub_no int(5) AUTO_INCREMENT,
+	sub_id varchar( 10 ) default 'SUBJ',
+	
+	sub_name varchar(100) not null,
+	user_no int(5),
+	user_id varchar( 10 ) default 'USRID',
+	
+	
+	sub_date date not null DEFAULT CURRENT_DATE,
+	PRIMARY KEY(sub_no,sub_id,user_id),
+	CONSTRAINT subject_fk FOREIGN KEY (user_no,user_id) references UserAccount(user_no,user_id)
+);
+
+ALTER TABLE Subject AUTO_INCREMENT=60001;
+
+
+
+
+
+Create Table Questions(
+	q_str varchar(4) default 'que_',
+	q_no int(5) AUTO_INCREMENT,
+	q_id varchar( 10 ) default 'QUES',
+	
+	
+	user_no int(5),
+	user_id varchar( 10 ) default 'USRID',
+	
+	
+	q_date date not null DEFAULT CURRENT_DATE,
+	q_name varchar(100) not null,
+	q_content varchar(1000) not null,
+	q_publicSt int(1) default 0,
+	
+	
+	PRIMARY KEY(q_no,q_id,user_id),
+	CONSTRAINT q_fk FOREIGN KEY (user_no,user_id) references UserAccount(user_no,user_id)
+);
+
+ALTER TABLE Questions AUTO_INCREMENT=70001;
+
+
+
+Create Table Comments(
+	com_str varchar(4) default 'com_',
+	com_no int(5) AUTO_INCREMENT,
+	com_id varchar( 10 ) default 'COMM',
+	
+	
+	q_no int(5),
+	q_id varchar( 10 ) default 'QUES',
+	
+	user_no int(5),
+	user_id varchar( 10 ) default 'USRID', 
+	
+	com_time TIMESTAMP  not null DEFAULT CURRENT_TIMESTAMP ,
+	com_content varchar(1000) not null,
+	
+	
+	PRIMARY KEY(com_no,com_id,q_id),
+	CONSTRAINT com_fk1 FOREIGN KEY (q_no,q_id) references Questions(q_no,q_id),
+	CONSTRAINT com_fk2 FOREIGN KEY (user_no,user_id) references UserAccount(user_no,user_id)
+);
+
+ALTER TABLE Comments AUTO_INCREMENT=80001;
+
+
+
+Create Table TodoList(
+	tl_str varchar(4) default 'tdl_',
+	tl_no int(5) AUTO_INCREMENT,
+	tl_id varchar( 10 ) default 'TODO',
+
+
+	user_no int(5),
+	user_id varchar( 10 ) default 'USRID',
+
+
+	tl_date date not null DEFAULT CURRENT_DATE,
+	tl_title varchar(100) not null,
+	tl_desc varchar(1000) not null,
+	user_name varchar(100) not null,
+
+
+	PRIMARY KEY(tl_no,tl_id,user_id),
+	CONSTRAINT tl_fk FOREIGN KEY (user_no,user_id) references UserAccount(user_no,user_id)
+);
+
+ALTER TABLE Questions AUTO_INCREMENT=11001;

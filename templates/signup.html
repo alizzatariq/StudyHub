@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <header>
+    <nav class="navbar navbar-expand-lg bg-dark navbar-text navbar-custom">
+      <div class="container-fluid">
+{#        <a class="navbar-brand" href="#">Navbar</a>#}
+          <h3>StudyHub  </h3>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+              </li>
+              <li class="nav-item">
+              <a class="nav-link" href="#">Support</a>
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </nav>
+</header>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+
+    {#    <link href="signin.css" rel="stylesheet">#}
+    <link href="../static/css/signup.css" rel="stylesheet">
+    <link href="../static/css/navbar.css" rel="stylesheet">
+{#    <link href="./static/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">#}
+    <!-- Custom styles for this template -->
+
+
+    <script src="../static/signup.js"></script>
+    <script src="../static/js/signup.js"></script>
+
+
+
+</head>
+
+<body>
+<main class="form-signin w-50 m-auto">
+
+    {% if error==True %}
+        {% if success1==True %}
+            <div class="alert alert-success alert-dismissible fade show">
+                <strong>ALERT!</strong> {{ str1 }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endif %}
+
+        {% if danger1==True %}
+            <div class="alert alert-danger alert-dismissible fade show">
+                <strong>ALERT!</strong> {{ str1 }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endif %}
+
+        {% if warn1==True %}
+            <div class="alert alert-warning alert-dismissible fade show">
+                <strong>ALERT!</strong> {{ str1 }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        {% endif %}
+    {% endif %}
+
+<br><br><br><br>
+    <form class="form-signin" method="post" action="/signup">
+
+        <div class="text-center">
+         <img class="mb-4 mt-4" src="./static/images/icon1.png" alt="" width="72" height="57">
+
+        <h1 class="h3 mb-3 signupheading">Signup</h1>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8 mb-4 center-block">
+                <div class="form-group">
+                    <label for="floatingInput">User Name</label><span style="color:#ff0000">*</span>
+                    <input type="text" class="form-control form-control-lg" id="floatingInput" name="nm"
+                           placeholder="User Name" onchange="checkUserName(this)">
+                    <span id="un" class="error" style="color:#ff0000; font-size:small; font-weight:lighter;"></span>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8 mb-4">
+                <div class="form-group">
+                    <label for="floatingEmail">Email</label><span style="color:#ff0000">*</span>
+                    <input type="email" class="form-control form-control-lg" name="email" id="floatingEmail"
+                           placeholder="email@gmail.com" onchange="checkEmail(this)">
+                    <span id="em" class="error" style="color:#ff0000; font-size:small; font-weight:lighter;"></span>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8 mb-4 ml-10">
+                <div class="form-group">
+                    <label for="floatingPassword1">Password</label><span style="color:#ff0000">*</span>
+
+                    <input type="password" class="form-control form-control-lg" name="pwd2" id="floatingPassword1"
+                           placeholder="password" onchange="checkPwd(this)">
+                     <span id="pwdErr" class="error" style="color:#ff0000; font-size:small; font-weight:lighter;"></span>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-8 mb-4">
+                <div class="form-group">
+                    <label for="floatingPassword2">Password</label><span style="color:#ff0000">*</span>
+                    <input type="password" class="form-control form-control-lg" name="pwd1" id="floatingPassword2"
+                           placeholder="Confirm Password" onchange="confirmPassword(this)">
+                     <span id="pwdErr1" class="error" style="color:#ff0000; font-size:small; font-weight:lighter;"></span>
+
+
+                </div>
+            </div>
+        </div>
+
+
+        <div>
+
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8 mb-4">
+                    <div class="form-group">
+                        <label>Please Select Account Type:</label><span style="color:#ff0000">*</span><br>
+                        <select name="acctype" class="form-control form-control-lg">
+                            <option value="Teacher">TEACHER</option>
+                            <option value="Student">STUDENT</option>
+                        </select><br><br>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="text-center">
+        {#          <a class="btn btn-primary btn-lg" href="/signup">SignUp</a>#}
+        <button class="w-50 btn btn-lg my-10" type="submit" id="btn1">Signin</button>
+
+
+        <div class="container text-center my-3">
+            Already have an account?<a href="/login">Login</a>
+        </div>
+        </div>
+
+    </form>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+        integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js"
+        integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy"
+        crossorigin="anonymous"></script>
+<br><br>
+    <footer>
+        <hr>
+        <center class="footer-bottom-text">Copyright&#169; My web</center>
+    </footer>
+
+</body>
+
+<script src="../static/signup.js"></script>
+</html>
